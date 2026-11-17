@@ -3,6 +3,7 @@ package com.example.noteapi.controller;
 import com.example.noteapi.auth.AuthenticationService;
 import com.example.noteapi.dto.LoginRequest;
 import com.example.noteapi.dto.LoginResponse;
+import com.example.noteapi.dto.RegisterRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,4 +24,11 @@ public class AuthController {
         LoginResponse response = authenticationService.authentication(loginRequest);
         return ResponseEntity.ok(response);
     }
+
+    @PostMapping("/register")
+    public ResponseEntity<LoginResponse> register(@RequestBody RegisterRequest registerRequest){
+        LoginResponse response = authenticationService.register(registerRequest);
+        return ResponseEntity.ok(response);
+    }
+
 }
